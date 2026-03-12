@@ -102,38 +102,17 @@ body {
 }
 /* ヒーロー画像 */
 .hero-image-wrapper {
-  position: relative;
   width: 100%;
-  overflow: hidden;
+  max-width: 1200px; /* 見やすさのため最大幅を設定 */
+  margin: 0 auto;
+  padding-top: 20px;
 }
 .hero-image-wrapper img {
   width: 100%;
   height: auto;
   display: block;
-}
-.hero-image-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 40%;
-  background: linear-gradient(to bottom, transparent, var(--navy-dark));
-  z-index: 1;
-}
-/* ヒーローテキストエリア */
-.hero-text-area {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  margin: -60px auto 0;
-  padding: 0 20px 60px;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  animation: fadeInUp 1.2s ease;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 .hero-label {
   display: inline-block;
@@ -676,32 +655,11 @@ body {
 <body>
 
 <!-- ===== ヒーローセクション ===== -->
-<section class="hero">
+<section class="hero" style="min-height: auto; padding-bottom: 40px;">
   <!-- メインビジュアル画像 -->
   <div class="hero-image-wrapper">
-    <!-- ★★★ 下のURLをBloggerにアップロードした画像のURLに差し替えてください ★★★ -->
-    <img src="YOUR_IMAGE_URL_HERE" alt="あなたの感情を動かす政治家の言葉 — 日本×イスラエルの国際共同研究が解き明かす、最新の政治レトリック分析">
-    <div class="hero-image-overlay"></div>
+    <img src="https://kk6453660.wordpress.com/wp-content/uploads/2026/03/gemini_generated_image_944pve944pve944p.png" alt="あなたの感情を動かす政治家の言葉 — 日本×イスラエルの国際共同研究が解き明かす、最新の政治レトリック分析">
   </div>
-
-  <!-- テキストコンテンツ -->
-  <div class="hero-text-area">
-    <span class="hero-label">日本×イスラエル 国際共同研究</span>
-    <h1 class="hero-catch">
-      なぜ、私たちは<br>
-      <span class="highlight">「正しさ」</span>ではなく<br>
-      <span class="highlight">「感情」</span>で選んでしまうのか？
-    </h1>
-    <p class="hero-sub">
-      安倍元首相銃撃、兵庫県知事選、SNSの分極化……<br>
-      現代政治の裏側で、あなたの心は「言葉」によってハックされている。
-    </p>
-    <p class="hero-sub-accent">
-      最新の政治レトリック分析が解き明かす——<br>
-      <em>「感情政治」</em>という知の武器を、今、その手に。
-    </p>
-  </div>
-  <div class="scroll-indicator"><span></span></div>
 </section>
 
 <!-- ===== 共感・問題提起 ===== -->
@@ -982,10 +940,6 @@ body {
     <div class="cta-book-title">『あなたの感情を動かす政治家の言葉』</div>
     <div class="cta-book-sub">木下 健・オフェル・フェルドマン 著</div>
 
-    <div class="cta-bonus">🎁 特典：「政治レトリック体系図」簡易チェックリスト（電子版）付き</div>
-
-    <br><br>
-
     <a href="#" class="cta-button" target="_blank" rel="noopener noreferrer">
       「感情政治」の正体を突き止める
       <span class="cta-button-sub">Amazonで予約・購入 →</span>
@@ -1034,21 +988,6 @@ document.addEventListener('DOMContentLoaded', function() {
       el.textContent = current.toLocaleString() + (suffix || '');
     }, 25);
   }
-
-  // 背景キーワードの微小パララックス
-  var keywords = document.querySelectorAll('.hero-keyword');
-  // 各キーワードの初期transform値を保存
-  var initialTransforms = [];
-  keywords.forEach(function(kw) {
-    initialTransforms.push(window.getComputedStyle(kw).transform || 'none');
-  });
-  window.addEventListener('scroll', function() {
-    var scrollY = window.pageYOffset;
-    keywords.forEach(function(kw, i) {
-      var speed = 0.02 + (i * 0.008);
-      kw.style.transform = initialTransforms[i] + ' translateY(' + (scrollY * speed) + 'px)';
-    });
-  });
 });
 </script>
 
